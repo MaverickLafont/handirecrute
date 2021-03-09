@@ -1,0 +1,27 @@
+nav{
+  display: flex;
+  justify-content: space-around;
+
+  margin: 25px 0 50px 0;
+  color: black;
+
+
+  p{
+    margin: 0;
+  }
+
+  a{
+    text-decoration: none;
+    margin-right: 20px;
+    color: black;
+  }
+
+  .login{
+
+    a{
+      padding: 8px;
+      border: 1px solid black;
+      border-radius: 20px;
+    }
+  }
+}
