@@ -23,7 +23,7 @@ class Job
     private $intitule;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=10000)
      */
     private $description;
 
@@ -56,6 +56,20 @@ class Job
      * @ORM\Column(type="datetime")
      */
     private $dateLimit;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $publishedAt;
+
+    /**
+     * Job constructor.
+     * @param $publishedAt
+     */
+    public function __construct()
+    {
+        $this->publishedAt = new \DateTime();
+    }
 
     public function getId(): ?int
     {
@@ -154,6 +168,18 @@ class Job
     public function setDateLimit(\DateTimeInterface $dateLimit): self
     {
         $this->dateLimit = $dateLimit;
+
+        return $this;
+    }
+
+    public function getPublishedAt(): ?\DateTimeInterface
+    {
+        return $this->publishedAt;
+    }
+
+    public function setPublishedAt(\DateTimeInterface $publishedAt): self
+    {
+        $this->publishedAt = $publishedAt;
 
         return $this;
     }

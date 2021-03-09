@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello JobController!{% endblock %}
+
+{% block body %}
+    <form action="#" class="rechercheOffre">
+        <p>Rechercher des offres</p>
+        <input type="text" placeholder="Poste">
+        <input type="text" placeholder="Lieu">
+        <input list="typesContrat" name="typeContrat" id="typeContrat">
+        <datalist id="typesContrat">
+            <option value="CDI">
+            <option value="CDD">
+            <option value="Intérim">
+            <option value="Stage">
+            <option value="Alternance">
+            <option value="Indépendant">
+        </datalist>
+        <button type="submit">Rechercher</button>
+    </form>
+    <div class="offres">
+        {% for job in jobs %}
+            <div class="offresCard">
+                <h3>{{ job.intitule }}</h3>
+                <p>{{ job.secteurActivite }} . {{ job.ville }} ({{ job.departement }})</p>
+                <p>Publiée le {{ job.publishedAt|format_datetime('short', 'none', locale='fr') }}</p>
+                <a href="/offre/{{ job.id }}">Voir plus</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
