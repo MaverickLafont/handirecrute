@@ -3,6 +3,9 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
+    {% for flashSucces in app.flashes('success') %}
+        <div class="alert alert-danger" role="alert">{{ flashSucces }}</div>
+    {% endfor %}
 
 <div class="example-wrapper">
     <h1>Accueil</h1>
