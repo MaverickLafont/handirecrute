@@ -78,6 +78,9 @@ class RegistrationController extends AbstractController
 
     /**
      * @Route("/verify/email", name="app_verify_email")
+     * @param Request $request
+     * @param UserRepository $userRepository
+     * @return Response
      */
     public function verifyUserEmail(Request $request, UserRepository $userRepository): Response
     {
